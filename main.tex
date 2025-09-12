@@ -1,0 +1,184 @@
+\documentclass[oneside,12pt]{article}
+
+\usepackage[left=1in,top=1in,right=1in,bottom=1in,footskip=0.333in,head=\baselineskip]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+
+\usepackage[margin=0.1cm,labelfont=bf,textfont=it]{caption}
+
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage[detect-all,retain-unity-mantissa=false,separate-uncertainty=true,multi-part-units=single,list-units=single,range-units=single,list-final-separator={, and },separate-uncertainty=true]{siunitx}
+\newcommand{\SIdash}[3]{\SIrange[range-phrase=--,range-units=single]{#1}{#2}{#3}}
+\DeclareSIUnit\erg{erg}
+\DeclareSIUnit\K{K}
+\DeclareSIUnit\annum{a}
+\DeclareSIUnit\a{a}
+\usepackage[version=4]{mhchem}
+\usepackage{physics}
+\DeclareDocumentCommand\Variation{ o g d() }{% Functional Variation, an addition to the physics package for \Delta in place of \delta
+    % o: optional n for nth differential
+    % g: optional argument for readability and to control spacing
+    % d: long-form as in d(F(g))
+    \IfNoValueTF{#2}{
+        \IfNoValueTF{#3}
+            {\Delta \IfNoValueTF{#1}{}{^{#1}}}
+            {\mathinner{\Delta \IfNoValueTF{#1}{}{^{#1}}\argopen(#3\argclose)}}
+        }
+        {\mathinner{\Delta \IfNoValueTF{#1}{}{^{#1}}#2} \IfNoValueTF{#3}{}{(#3)}}
+}
+\DeclareDocumentCommand\Var{}{\Variation} % Shorthand for \Variation
+\usepackage{indentfirst}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\usepackage[square,numbers,sort&compress,comma]{natbib}
+\bibliographystyle{/home/shane/.config/latex/swsunsrt}
+\usepackage{doi}
+\usepackage{hyperref}
+    \hypersetup{bookmarksnumbered,bookmarksdepth=4,colorlinks=true,linkcolor=red,citecolor=red,urlcolor=blue,pdfborder=0 0 0}
+\usepackage{cleveref}
+    \crefformat{section}{\S#2#1#3}
+    \crefname{equation}{equation}{equations}
+    \crefname{figure}{figure}{figures}
+    \crefname{table}{table}{tables}
+
+\usepackage{tocloft}
+\renewcommand{\cftdotsep}{1}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\bfseries\scshape}
+\renewcommand{\cftsecaftersnum}{.}
+\setlength{\cftsubsecnumwidth}{1.25em}
+\setlength{\cftsubsubsecnumwidth}{1em}
+
+\usepackage{scrlayer-scrpage}
+\clearpairofpagestyles
+\ihead{\scshape\upshape ROSES S$^{3}$}
+\chead{\scshape\upshape\leftmark}
+\ohead{\upshape\thepage}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+\usepackage{titlesec}
+\renewcommand{\thesubsection}{\alph{subsection}.}
+\renewcommand{\thesubsubsection}{\roman{subsubsection}.}
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries\color{black}\centering\scshape}
+  {\thesection.}
+  {0.75em}
+  {}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries\color{black}}
+  {\bfseries\thesubsection}
+  {0.75em}
+  {}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\color{black}}
+  {\thesubsubsection}
+  {0.75em}
+  {\itshape}
+
+\usepackage{etoolbox}
+\makeatletter
+\pretocmd{\section}{\setcounter{page}{1}}{}{}
+\makeatother
+
+\renewcommand{\thepage}{\thesection-\arabic{page}}
+
+\makeatletter
+\renewcommand\@seccntformat[1]{%
+  \ifcsname the#1\endcsname
+    \csname the#1\endcsname\quad
+  \fi
+}
+\makeatother
+
+\author{Anonymous}
+\title{Photochemical Escape at Mars}
+\date{September 11, 2025}
+
+\makeatletter
+\newcommand{\printtitle}{\@title}
+\makeatother
+
+\begin{document}
+
+    \pagestyle{scrheadings}
+
+    \section{Proposal Summary}
+    \label{sec:summary}
+
+    \clearpage
+
+    \begin{center}
+        \textsc{\textbf{\printtitle}\\
+        \bigskip
+        Solicitation \#/Name}
+    \end{center}
+
+    \section{Table of Contents}
+    \renewcommand\contentsname{}
+    \tableofcontents
+    \thispagestyle{scrheadings}
+
+    \clearpage
+
+    \section{Scientific/Technical/Management}
+
+    This is a sentence~\cite{Stone2022}. This is another sentence, see \cref{sec:summary}.
+
+    \subsection{Objectives and Expected Significance}
+
+    \subsection{Perceived Impact}
+
+    \subsection{Relevance of Proposed Work}
+
+    \subsection{Technical Approach and Methodology}
+
+    \subsubsection{Background}
+
+    \subsection{Potential Risks and Mitigation Strategies}
+
+    \subsection{Plan of Work and Management Structure}
+
+    \clearpage
+
+    \section{References}
+
+    \renewcommand{\refname}{\vspace{-2em}}
+    \bibliography{/home/shane/.config/pubs/lib}
+
+    \clearpage
+
+    \section{Personnel and Work Effort Table}
+
+    \clearpage
+
+    %remember - these must all be anonymous AND redacted for salary/fringe
+
+    \section*{Budget Narrative}
+
+    \subsection*{Institution 1 (lead)}
+    %\includepdf[pages=-,pagecommand={}]{inst1_budget_justification_redacted}
+
+    \subsection*{Institution 2}
+    %\includepdf[pages=-,pagecommand={}]{inst2_budget_justification_redacted}
+
+    \subsection*{Institution 3}
+    %\includepdf[pages=-,pagecommand={}]{inst3_budget_justification_redacted}
+
+    \clearpage
+
+    \section*{Detailed Budget}
+
+    \subsection*{Institution 1 (lead)}
+    %\includepdf[pages=-,pagecommand={}]{inst1_detailed_budget_redacted}
+
+    \subsection*{Institution 2}
+    %\includepdf[pages=-,pagecommand={}]{inst2_detailed_budget_redacted}
+
+    \subsection*{Institution 3}
+    %\includepdf[pages=-,pagecommand={}]{inst3_detailed_budget_redacted}
+
+\end{document}
