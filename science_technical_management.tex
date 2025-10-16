@@ -81,11 +81,26 @@
   {\bfseries\thesubsection.}
   {0.75em}
   {}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\color{black}}
-  {\thesubsubsection.}
-  {0.75em}
-  {\itshape}
+% \titleformat{\subsubsection}
+%   {\normalfont\normalsize\color{black}}
+%   {\thesubsubsection.}
+%   {0.75em}
+%   {\itshape}
+\titleformat{\subsubsection}[runin]
+  {\normalfont\bfseries}
+  {\indent}
+  {0em}
+  {}
+  [.]
+
+\titlespacing*{\section}
+  {0pt}{2ex plus 0.5ex minus 0.5ex}{0.5ex plus 0.25ex}
+\titlespacing*{\subsection}
+  {0pt}{2ex plus 0.5ex minus 0.5ex}{0.5ex plus 0.25ex}
+\titlespacing*{\subsubsection}
+  {0pt}{2ex plus 0.5ex minus 0.5ex}{0.5ex plus 0.25ex}
+
+\setlength{\parskip}{0.05em plus 0.025em minus 0.025em}
 
 \usepackage{etoolbox}
 
@@ -103,8 +118,10 @@
 }
 \makeatother
 
+%% TODO: Set to false for final version
 \newtoggle{draftmode}
 \toggletrue{draftmode}
+% \togglefalse{draftmode}
 
 \iftoggle{draftmode}{
     \cfoot{\scshape DRAFT --- \today}
@@ -117,7 +134,7 @@
 \makeatother
 
 \author{Anonymous}
-\title{Photochemical Escape at Mars}
+\title{Photochemical Escape of Oxygen at Mars}
 \date{\today}
 
 \begin{document}
@@ -152,25 +169,55 @@
     \section{Scientific/Technical/Management}
     \label{sec:stm}
 
-    This is a sentence~\cite{Stone2022}. This is another sentence, see \cref{sec:methodology}, which is a part of~\cref{sec:stm}.
 
     \subsection{Research Questions and Scientific Objectives}
 
+    This is a sentence~\cite{Stone2022}. This is another sentence, see \cref{sec:methodology}, which is a part of~\cref{sec:stm}.
+
+    \subsubsection{Task A: Validation of First Measurements of Oxygen Isotope Ratios in the Atmosphere of Mars}
+
+
+
+    \subsubsection{Task B: Production and Transport of Hot Oxygen}
+
+    The first portion of this task will investigate the isotope effect on recombination of \ce{O2+} with \ce{e-}, the primary source responsible
+    for the production of hot oxygen.
+
+    The second part of this task will investigate the transport of hot oxygen in the exosphere of Mars.
+
+
+    \subsubsection{Task C: Implications of this Work for the Evolution of the Martian Atmosphere Through Time}
+
+
+
     \subsection{Expected Significance and Perceived Impact}
 
+
+
     \subsection{Relevance to Planetary Science Division Priorities}
+
+
 
     \subsection{Overview of Methodology}
     \label{sec:methodology}
 
+
+
     \subsubsection{Background}
+
+
 
     \subsection{Potential Risks and Mitigation Strategies}
 
+
+
     \subsection{Plan of Work and Management Structure}
+
 
     \clearpage
 
+
+    %% Tables of Personnel and Work Effort
 
     \section{Tables of Personnel and Work Effort}
 
@@ -190,12 +237,12 @@
             \cline{3-6}
             & & \multicolumn{1}{c|}{\textbf{Y1}} & \multicolumn{1}{c|}{\textbf{Y2}} & \multicolumn{1}{c|}{\textbf{Y3}} & \multicolumn{1}{c|}{\textbf{Total}} \\
             \hline
-            PI Name           & PI           & 0.00 & 0.00 & 0.00 & 0.00 \\
-            Co-I Name         & Co-I         & 0.00 & 0.00 & 0.00 & 0.00 \\
-            Collaborator Name & Collaborator & n/a  & n/a  & n/a  & n/a  \\
-            Other Name        & Other Role   & 0.00 & 0.00 & 0.00 & 0.00 \\
+            Principal Investigator & PI   & 0.15 & 0.15 & 0.15 & 0.45 \\
+            Co-Investigator 1      & Co-I & 0.30 & 0.20 & 0.15 & 0.65 \\
+            Co-Investigator 2      & Co-I & 0.20 & 0.20 & 0.20 & 0.60 \\
+            Co-Investigator 3      & Co-I & 0.01 & 0.08 & 0.15 & 0.24 \\
             \hline
-            \multicolumn{2}{|l|}{\textbf{Total Funded Work Effort}} & \textbf{0.00} & \textbf{0.00} & \textbf{0.00} & \textbf{0.00} \\
+            \multicolumn{2}{|l|}{\textbf{Total Funded Work Effort}} & \textbf{0.66} & \textbf{0.63} & \textbf{0.65} & \textbf{1.94} \\
             \hline
         \end{tabular}
     \end{table}
@@ -203,7 +250,7 @@
     \vspace{1em}
 
     \begin{center}
-        \textbf{Work Efforts Proposed but Not to Be Funded by This Proposal}
+        \textbf{Work Efforts Proposed but Not to be Funded by This Proposal}
         \vspace{-1em}
     \end{center}
 
@@ -215,10 +262,10 @@
             \cline{3-6}
             & & \multicolumn{1}{c|}{\textbf{Y1}} & \multicolumn{1}{c|}{\textbf{Y2}} & \multicolumn{1}{c|}{\textbf{Y3}} & \multicolumn{1}{c|}{\textbf{Total}} \\
             \hline
-            PI Name           & PI           & 0.00 & 0.00 & 0.00 & 0.00 \\
-            Co-I Name         & Co-I         & 0.00 & 0.00 & 0.00 & 0.00 \\
-            Collaborator Name & Collaborator & 0.00 & 0.00 & 0.00 & 0.00 \\
-            Other Name        & Other Role   & 0.00 & 0.00 & 0.00 & 0.00 \\
+            Principal Investigator & PI   & 0.00 & 0.00 & 0.00 & 0.00 \\
+            Co-Investigator 1      & Co-I & 0.00 & 0.00 & 0.00 & 0.00 \\
+            Co-Investigator 2      & Co-I & 0.00 & 0.00 & 0.00 & 0.00 \\
+            Co-Investigator 3      & Co-I & 0.00 & 0.00 & 0.00 & 0.00 \\
             \hline
             \multicolumn{2}{|l|}{\textbf{Total Unfunded Work Effort}} & \textbf{0.00} & \textbf{0.00} & \textbf{0.00} & \textbf{0.00} \\
             \hline
@@ -240,12 +287,12 @@
             \cline{3-6}
             & & \multicolumn{1}{c|}{\textbf{Y1}} & \multicolumn{1}{c|}{\textbf{Y2}} & \multicolumn{1}{c|}{\textbf{Y3}} & \multicolumn{1}{c|}{\textbf{Total}} \\
             \hline
-            PI Name           & PI           & 0.00 & 0.00 & 0.00 & 0.00 \\
-            Co-I Name         & Co-I         & 0.00 & 0.00 & 0.00 & 0.00 \\
-            Collaborator Name & Collaborator & 0.00 & 0.00 & 0.00 & 0.00 \\
-            Other Name        & Other Role   & 0.00 & 0.00 & 0.00 & 0.00 \\
+            Principal Investigator & PI   & 0.15 & 0.15 & 0.15 & 0.45 \\
+            Co-Investigator 1      & Co-I & 0.30 & 0.20 & 0.15 & 0.65 \\
+            Co-Investigator 2      & Co-I & 0.20 & 0.20 & 0.20 & 0.60 \\
+            Co-Investigator 3      & Co-I & 0.01 & 0.08 & 0.15 & 0.24 \\
             \hline
-            \multicolumn{2}{|l|}{\textbf{Grand Total Work Effort}} & \textbf{0.00} & \textbf{0.00} & \textbf{0.00} & \textbf{0.00} \\
+            \multicolumn{2}{|l|}{\textbf{Grand Total Work Effort}} & \textbf{0.66} & \textbf{0.63} & \textbf{0.65} & \textbf{1.94} \\
             \hline
         \end{tabular}
     \end{table}
